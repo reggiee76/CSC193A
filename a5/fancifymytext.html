@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Fancify Shamcify</title>
-
-		<!-- link to your script file here -->
-		 <script src="fancifymytext.js"></script>
+		<title>Fancify Shamcify</title>		
 		
+		<link rel="stylesheet" href="/styles.css">	
 	</head>
 
 	<body>
-		<h1>Fancify my Text</h1>	
 
-		<!-- Your UI controls go here -->
-		 <main>
-			<div>
-				<fieldset>
-					<legend>Text</legend>
+		<div id="nav-placeholder"></div>
+
+		<div class="container">
+			<h1>Fancify</h1>
+			<main>
+				<div class="text-section">
+					<label for="main-text">Text</label>
 					<textarea name="input" id="textInput" rows="4" cols="30"></textarea>
-				</fieldset>
+				</div>
+
 				<fieldset>
-					<legend>Fancify</legend>
+					<legend>Fancify Controls</legend>
 
 					<button onclick="makeBigger()">Bigger!</button>
 					<button onclick="moo()">MOO</button>
 
-					<input type="radio" name="fontStyle" id="fancy" onchange="styleText()"> 
-						<label>FancyShmancy</label>
+					<div class="radio-group">
 
-					<input type="radio" name="fontStyle" id="boring" onchange="styleText()">
-						<label>BoringBetty</label>
+						<input type="radio" name="fontStyle" id="fancy" onclick="styleText()"> 
+						<label for="fancy">FancyShmancy</label>
+
+						<input type="radio" name="fontStyle" id="boring" onchange="styleText()" checked>
+						<label for="boring">BoringBetty</label>
+					</div>
 				</fieldset>
-			</div>
-		 </main>
+				
+			</main>
+		</div>		
 		
+		<!-- link to your script file here -->
+		 <script src="fancifymytext.js"></script>  
+		<script>
+			fetch('/navbar.html')
+			.then(res => res.text())
+			.then(data => {
+			document.getElementById('nav-placeholder').innerHTML = data;
+			});
+		</script>	
 	</body>
 </html>

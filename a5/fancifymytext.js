@@ -32,7 +32,7 @@ function moo(){
 
     // Add moo to end of sentence
     let parts = text.split(".");
-    text = parts.join("-MOO.");
+    text = parts.join("-MOO.") + "-MOO";
 
     textArea.value = text;
 
